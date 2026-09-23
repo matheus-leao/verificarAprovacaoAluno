@@ -1,11 +1,16 @@
 export function verificarAprovacaoAluno(media, frequencia) {
-    if (media >= 7 && frequencia >= 75) {
-        return 'Aprovado'
-    } 
-    if (media >= 4 && frequencia >= 75) {
-        return 'Recuperação'
-    } 
-    if (media < 4 || frequencia < 75) {
-        return 'Reprovado'
-    } 
+    let status;
+
+    if (frequencia < 75) {
+        status = 'Reprovado'
+    } else {
+        if (media >= 7) {
+            status = 'Aprovado'
+        } else if (media >= 4) {
+            status = 'Recuperação'
+        } else {
+            status = 'Reprovado'
+        }
+    }
+    return status
 }
